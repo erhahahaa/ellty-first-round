@@ -1,4 +1,15 @@
 import { Pages } from "./components/pages"
+import { ApplicantDetails } from "./components/applicant-details"
+
+const SubHeading = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <p
+      className="text-xl font-medium text-start">
+      {children}
+    </p>
+  )
+}
+
 
 function App() {
   return (
@@ -7,7 +18,16 @@ function App() {
         Ellty First Round
       </h1>
 
-      <Pages />
+      <section className="space-y-4">
+        <SubHeading>Challenge</SubHeading>
+        <Pages />
+      </section>
+
+      <section className="space-y-4">
+        <SubHeading>Applicant Details</SubHeading>
+        <ApplicantDetails />
+
+      </section>
     </div>
   )
 }
