@@ -1,5 +1,5 @@
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, memo } from "react";
 
 type CheckboxProps = {
   checked: boolean;
@@ -9,7 +9,7 @@ type CheckboxProps = {
   label?: string;
 };
 
-export const Checkbox = ({
+export const Checkbox = memo(({
   checked,
   indeterminate = false,
   onChange,
@@ -62,7 +62,7 @@ export const Checkbox = ({
             className={`
               w-5 h-5 text-transparent 
               
-              ${(checked && !indeterminate) ? "text-white" : "opacity-0 hover:opacity-100 hover:text-border-light"}
+              ${(checked && !indeterminate) ? "text-white" : "text-border-light"}
             `}
             viewBox="0 0 16 16"
             fill="none"
@@ -85,4 +85,4 @@ export const Checkbox = ({
 
     </label>
   );
-}
+});
