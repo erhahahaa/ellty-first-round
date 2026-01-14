@@ -5,7 +5,7 @@ import { Card, CardItem } from "./card";
 import { Button } from "./button";
 import { Separator } from "./separator";
 
-const pages = ["Page 1", "Page 2", "Page 3", "Page 4"];
+const pages = ["Page 1", "Page 2", "Page 3", "Page 4", "Pages 5", "Pages 6"];
 
 export const Pages = () => {
   const [selected, setSelected] = useState<string[]>([]);
@@ -30,22 +30,24 @@ export const Pages = () => {
       <div className="py-2.5 px-3.75">
         <Separator />
       </div>
-      {pages.map((page) => (
-        <CardItem>
-          <Checkbox
-            key={page}
-            label={page}
-            checked={selected.includes(page)}
-            onChange={(checked) =>
-              setSelected((prev) =>
-                checked
-                  ? [...prev, page]
-                  : prev.filter((p) => p !== page)
-              )
-            }
-          />
-        </CardItem>
-      ))}
+      <div className="scroll-auto max-h-41 overflow-y-auto hide-scrollbar" >
+        {pages.map((page) => (
+          <CardItem>
+            <Checkbox
+              key={page}
+              label={page}
+              checked={selected.includes(page)}
+              onChange={(checked) =>
+                setSelected((prev) =>
+                  checked
+                    ? [...prev, page]
+                    : prev.filter((p) => p !== page)
+                )
+              }
+            />
+          </CardItem>
+        ))}
+      </div>
       <div className="py-2.5 px-3.75">
         <Separator />
       </div>
